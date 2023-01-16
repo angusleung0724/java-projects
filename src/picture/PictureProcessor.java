@@ -58,9 +58,10 @@ public class PictureProcessor {
         final var result = new Picture(width, height);
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                switch (direction) {
-                    case "H" -> result.setPixel(i, j, input.getPixel(width - i - 1, j));
-                    case "V" -> result.setPixel(i, j, input.getPixel(i, height - j - 1));
+                if (direction == "H") {
+                    result.setPixel(i, j, input.getPixel(width - i - 1, j));
+                } else {
+                    result.setPixel(i, j, input.getPixel(i, height - j - 1));
                 }
             }
         }
