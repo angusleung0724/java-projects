@@ -96,9 +96,9 @@ public class PictureProcessor {
         int red = 0;
         int green = 0;
         int blue = 0;
-        for (int i = -1; i < 2; i++) {
-            for (int j = -1; j < 2; j++) {
-                var color = input.getPixel(x + i, y + j);
+        for (int i = x-1; i < x+2; i++) {
+            for (int j = y-1; j < y+2; j++) {
+                var color = input.getPixel(i, j);
                 red += color.getRed();
                 green += color.getGreen();
                 blue += color.getBlue();
