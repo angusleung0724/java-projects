@@ -56,7 +56,7 @@ public class PictureProcessor {
     final var result = new Picture(width, height);
     for (int i = 0; i < width; i++) {
       for (int j = 0; j < height; j++) {
-        if (direction == "H") {
+        if (direction.equals("H")) {
           result.setPixel(i, j, input.getPixel(width - i - 1, j));
         } else {
           result.setPixel(i, j, input.getPixel(i, height - j - 1));
