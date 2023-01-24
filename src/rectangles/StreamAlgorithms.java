@@ -107,11 +107,13 @@ public class StreamAlgorithms {
   }
 
   public static Optional<Rectangle> intersectAll(Stream<Rectangle> rectangles) {
-    Optional<Rectangle> maybeResult = rectangles.reduce((x, y) -> x.intersection(y).orElse(new Rectangle(0, 0)));
-    if (maybeResult.isPresent() && maybeResult.get().area() == 0) {
-      return Optional.empty();
-    } else {
-      return maybeResult;
-    }
+    var maybeResult = rectangles.map(Optional::of).reduce((x, y) -> {
+      if (x.isEmpty() || y.isEmpty()) {
+        return Optional.empty();
+      } else {
+        return (x.get().intersection(y.get()));
+      }
+    });
+    return maybeResult.orElseGet(Optional::empty);
   }
 }
