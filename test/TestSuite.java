@@ -669,133 +669,132 @@ public class TestSuite {
     assertFalse(StreamAlgorithms.intersectAll(VARIOUS_RECTANGLES_TRANSLATED_AND_SCALED.stream()).isPresent());
   }
 
-//  //===============================
-//  // 7. Tests for streams of cubes.
-//  //===============================
-//
-//  @Test
-//  public void cubeSupplier() {
-//    final CubeSupplier cubeSupplier = new CubeSupplier();
-//    for (int i = 1; i <= 1000; i++) {
-//      assertEquals(i * i * i, (int) cubeSupplier.get());
-//    }
-//  }
-//
-//  @Test
-//  public void cubeStream() {
-//    assertTrue(CubeSupplier.cubeStream().anyMatch(item -> item == 1000));
-//  }
-//
-//  @Test(expected = NoSuchElementException.class)
-//  public void cubeStreamException() {
-//    // 999 is not a perfect cube, so we expect the cube stream to be generated until
-//    // the largest positive int value has been exceeded, in which case an exception
-//    // should be thrown.
-//    CubeSupplier.cubeStream().anyMatch(item -> item == 999);
-//  }
-//
-//  @Test
-//  public void boundedCubeStream() {
-//    assertEquals((int) CubeSupplier.boundedCubeStream(0, 10)
-//          .reduce(0, Integer::sum), 3025);
-//  }
-//
-//  @Test
-//  public void boundedCubeStreamNoException() {
-//    assertFalse(CubeSupplier.boundedCubeStream(0, 50).anyMatch(item -> item == 999));
-//  }
-//
-//  @Test
-//  public void palindromes() {
-//    assertEquals(Arrays.asList(1, 8, 343, 1331, 1030301, 1367631),
-//          CubeSupplier.palindromicCubes(0, 1000).collect(Collectors.toList()));
-//  }
-//
-//  //==============================
-//  // 8. Tests for string prefixes.
-//  //==============================
-//
-//  private static final List<String> strings = Arrays.asList(
-//        "Java thinking",
-//        "Haskell programming",
-//        "Java programming",
-//        "Haskell breathing",
-//        "Java programming",
-//        "Java and Haskell: better together?",
-//        "Java programming",
-//        "Smalltalk programming",
-//        "C++ programming");
-//
-//  @Test
-//  public void countStringsStartingWithPrefix() {
-//    assertEquals(0, StringPrefixes.countStringsStartingWithPrefix(
-//          Stream.empty(), "Hello"));
-//    assertEquals(5, StringPrefixes.countStringsStartingWithPrefix(
-//          strings.stream(), "Java"));
-//    assertEquals(2, StringPrefixes.countStringsStartingWithPrefix(
-//          strings.stream(), "Haskell"));
-//    assertEquals(0, StringPrefixes.countStringsStartingWithPrefix(
-//          strings.stream(), "C#"));
-//  }
-//
-//  @Test
-//  public void emphasiseFirstStringStartingWithPrefix() {
-//    assertEquals("N/A", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
-//          Stream.empty(), "Hello"));
-//    assertEquals("*Java* thinking", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
-//          strings.stream(), "Java"));
-//    assertEquals("*Haskell* programming", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
-//          strings.stream(), "Haskell"));
-//    assertEquals("N/A", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
-//          strings.stream(), "C#"));
-//  }
-//
-//  @Test
-//  public void distinctStringsStartingWithPrefix() {
-//    assertEquals(new ArrayList<>(), StringPrefixes.distinctStringsStartingWithPrefix(
-//          Stream.empty(), "Hello"));
-//    assertEquals(Arrays.asList(
-//            "Java thinking",
-//            "Java programming",
-//            "Java and Haskell: better together?"),
-//          StringPrefixes.distinctStringsStartingWithPrefix(strings.stream(), "Java"));
-//    assertEquals(Arrays.asList(
-//          "Haskell programming",
-//          "Haskell breathing"),
-//          StringPrefixes.distinctStringsStartingWithPrefix(strings.stream(), "Haskell"));
-//  }
-//
-//
-//
-//  // ============================
-//  // Additional tests for Point.
-//  // ============================
-//
-//  // TODO: write your additional tests for the Point class here
-//
-//  // ================================
-//  // Additional tests for Rectangle.
-//  // ================================
-//
-//  // TODO: write your additional tests for the Rectangle class here
-//
-//  // =====================================
-//  // Additional tests for ListAlgorithms.
-//  // =====================================
-//
-//  // TODO: write your additional tests for the ListAlgorithms class here
-//
-//  // =======================================
-//  // Additional tests for StreamAlgorithms.
-//  // =======================================
-//
-//  // TODO: write your additional tests for the StreamAlgorithms class here
-//
-//  // ==============================================
-//  // Additional tests for intersecting rectangles.
-//  // ==============================================
-//
-//  // TODO: write your additional tests related to rectangle intersection here
-//
-//}
+  //===============================
+  // 7. Tests for streams of cubes.
+  //===============================
+
+  @Test
+  public void cubeSupplier() {
+    final CubeSupplier cubeSupplier = new CubeSupplier();
+    for (int i = 1; i <= 1000; i++) {
+      assertEquals(i * i * i, (int) cubeSupplier.get());
+    }
+  }
+
+  @Test
+  public void cubeStream() {
+    assertTrue(CubeSupplier.cubeStream().anyMatch(item -> item == 1000));
+  }
+
+  @Test(expected = NoSuchElementException.class)
+  public void cubeStreamException() {
+    // 999 is not a perfect cube, so we expect the cube stream to be generated until
+    // the largest positive int value has been exceeded, in which case an exception
+    // should be thrown.
+    CubeSupplier.cubeStream().anyMatch(item -> item == 999);
+  }
+
+  @Test
+  public void boundedCubeStream() {
+    assertEquals((int) CubeSupplier.boundedCubeStream(0, 10)
+          .reduce(0, Integer::sum), 3025);
+  }
+
+  @Test
+  public void boundedCubeStreamNoException() {
+    assertFalse(CubeSupplier.boundedCubeStream(0, 50).anyMatch(item -> item == 999));
+  }
+
+  @Test
+  public void palindromes() {
+    assertEquals(Arrays.asList(1, 8, 343, 1331, 1030301, 1367631),
+          CubeSupplier.palindromicCubes(0, 1000).collect(Collectors.toList()));
+  }
+
+  //==============================
+  // 8. Tests for string prefixes.
+  //==============================
+
+  private static final List<String> strings = Arrays.asList(
+        "Java thinking",
+        "Haskell programming",
+        "Java programming",
+        "Haskell breathing",
+        "Java programming",
+        "Java and Haskell: better together?",
+        "Java programming",
+        "Smalltalk programming",
+        "C++ programming");
+
+  @Test
+  public void countStringsStartingWithPrefix() {
+    assertEquals(0, StringPrefixes.countStringsStartingWithPrefix(
+          Stream.empty(), "Hello"));
+    assertEquals(5, StringPrefixes.countStringsStartingWithPrefix(
+          strings.stream(), "Java"));
+    assertEquals(2, StringPrefixes.countStringsStartingWithPrefix(
+          strings.stream(), "Haskell"));
+    assertEquals(0, StringPrefixes.countStringsStartingWithPrefix(
+          strings.stream(), "C#"));
+  }
+
+  @Test
+  public void emphasiseFirstStringStartingWithPrefix() {
+    assertEquals("N/A", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
+          Stream.empty(), "Hello"));
+    assertEquals("*Java* thinking", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
+          strings.stream(), "Java"));
+    assertEquals("*Haskell* programming", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
+          strings.stream(), "Haskell"));
+    assertEquals("N/A", StringPrefixes.emphasiseFirstStringStartingWithPrefix(
+          strings.stream(), "C#"));
+  }
+
+  @Test
+  public void distinctStringsStartingWithPrefix() {
+    assertEquals(new ArrayList<>(), StringPrefixes.distinctStringsStartingWithPrefix(
+          Stream.empty(), "Hello"));
+    assertEquals(Arrays.asList(
+            "Java thinking",
+            "Java programming",
+            "Java and Haskell: better together?"),
+          StringPrefixes.distinctStringsStartingWithPrefix(strings.stream(), "Java"));
+    assertEquals(Arrays.asList(
+          "Haskell programming",
+          "Haskell breathing"),
+          StringPrefixes.distinctStringsStartingWithPrefix(strings.stream(), "Haskell"));
+  }
+
+
+
+  // ============================
+  // Additional tests for Point.
+  // ============================
+
+  // TODO: write your additional tests for the Point class here
+
+  // ================================
+  // Additional tests for Rectangle.
+  // ================================
+
+  // TODO: write your additional tests for the Rectangle class here
+
+  // =====================================
+  // Additional tests for ListAlgorithms.
+  // =====================================
+
+  // TODO: write your additional tests for the ListAlgorithms class here
+
+  // =======================================
+  // Additional tests for StreamAlgorithms.
+  // =======================================
+
+  // TODO: write your additional tests for the StreamAlgorithms class here
+
+  // ==============================================
+  // Additional tests for intersecting rectangles.
+  // ==============================================
+
+  // TODO: write your additional tests related to rectangle intersection here
+
 }

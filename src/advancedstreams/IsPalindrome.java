@@ -3,7 +3,8 @@ package advancedstreams;
 public class IsPalindrome {
 
   public static boolean isPalindrome(String string) {
-    // TODO: implement as part of the suggested lab extension.
-    return false;
+    StringBuilder stringTwo = new StringBuilder();
+    stringTwo.append(string).reverse();
+    return string.equals(stringTwo.toString());
   }
 }

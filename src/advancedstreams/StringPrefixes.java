@@ -1,6 +1,8 @@
 package advancedstreams;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StringPrefixes {
@@ -9,8 +11,7 @@ public class StringPrefixes {
    * Return the number of strings in the "strings" stream that start with the "prefix" string.
    */
   public static int countStringsStartingWithPrefix(Stream<String> strings, String prefix) {
-    // TODO: implement
-    return -1;
+    return (int) strings.filter(item -> item.startsWith(prefix)).count();
   }
 
   /**
@@ -21,8 +22,16 @@ public class StringPrefixes {
    */
   public static String emphasiseFirstStringStartingWithPrefix(
           Stream<String> strings, String prefix) {
-    // TODO: implement
-    return null;
+    Optional<String> result = strings.filter(item -> item.startsWith(prefix)).findFirst();
+    if (result.isEmpty()) {
+      return "N/A";
+    } else {
+      return getResult(result.get(),prefix);
+    }
+  }
+
+  private static String getResult(String string, String prefix) {
+    return ("*" + prefix + "*" + string.split(prefix,2)[1]);
   }
 
   /**
@@ -31,7 +40,6 @@ public class StringPrefixes {
    */
   public static List<String> distinctStringsStartingWithPrefix(
           Stream<String> strings, String prefix) {
-    // TODO: implement
-    return null;
+    return strings.filter(item -> item.startsWith(prefix)).distinct().collect(Collectors.toList());
   }
 }
