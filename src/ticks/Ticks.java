@@ -8,7 +8,7 @@ public class Ticks extends Simulation<Ticks>{
 
   @Override
   protected boolean stop(){
-    return this.getCurrentTime() > maxTime;
+    return this.getCurrentTime() >= maxTime;
   }
 
   @Override
