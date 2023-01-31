@@ -1,6 +1,6 @@
 package simulation;
 
-public class ScheduledEvent implements Comparable<ScheduledEvent>{
+public class ScheduledEvent<S> implements Comparable<ScheduledEvent<S>>{
 
   private final Event event;
   private final double time;

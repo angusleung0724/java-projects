@@ -11,9 +11,13 @@ public class Ticks extends Simulation{
     return this.getCurrentTime() > maxTime;
   }
 
+  @Override
+  protected Ticks getState() { return this; }
+
   public Ticks(double maxTime) {
     this.maxTime = maxTime;
   }
+
 
   public static void main(String args[]) {
     Ticks ticks = new Ticks(10.0);

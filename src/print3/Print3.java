@@ -9,6 +9,9 @@ public class Print3 extends Simulation {
     return false;
   }
 
+  @Override
+  protected Print3 getState() { return this; }
+
   public static void main(String args[]) {
     Print3 p = new Print3();
     p.schedule(new Print(1), 7.2);
