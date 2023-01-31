@@ -2,16 +2,16 @@ package simulation;
 
 public class ScheduledEvent<S> implements Comparable<ScheduledEvent<S>>{
 
-  private final Event event;
+  private final Event<S> event;
   private final double time;
 
-  public ScheduledEvent(Event event, double time) {
+  public ScheduledEvent(Event<S> event, double time) {
     this.event = event;
     this.time = time;
   }
 
   @Override
-  public int compareTo(ScheduledEvent other) {
+  public int compareTo(ScheduledEvent<S> other) {
     return Double.compare(time, other.getTime());
   }
 
@@ -19,7 +19,7 @@ public class ScheduledEvent<S> implements Comparable<ScheduledEvent<S>>{
     return time;
   }
 
-  public Event getEvent() {
+  public Event<S> getEvent() {
     return event;
   }
 

@@ -3,7 +3,7 @@ package ticks;
 import simulation.Simulation;
 
 
-public class Ticks extends Simulation{
+public class Ticks extends Simulation<Ticks>{
   private final double maxTime;
 
   @Override

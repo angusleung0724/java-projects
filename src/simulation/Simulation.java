@@ -26,7 +26,7 @@ public class Simulation<S> {
       ScheduledEvent event = diary.poll();
       currentTime = event.getTime();
       if (!this.stop()) {
-        event.getEvent().invoke(this);
+        event.getEvent().invoke(getState());
       }
     }
   }

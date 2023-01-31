@@ -4,7 +4,7 @@ import simulation.Simulation;
 
 import java.util.Random;
 
-public class SingleServerQueue extends Simulation {
+public class SingleServerQueue extends Simulation<SingleServerQueue> {
   private final double time;
 
   private Random random;
